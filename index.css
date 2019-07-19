@@ -4,19 +4,23 @@
  font-family: monospace;
 }
 
-header {
-    height: 100vh;
-    background-image: url(comic_background.jpg);
+.charSelect {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center; 
+}
+
+header {
+    height: 100vh;
+    background-image: url(comic_background.jpg);
     background-size: cover; 
     margin-bottom: 30px;
 }
 
 h2 {
     color: purple;
+    text-align: center;
     font-size: 35px;
 }
 
