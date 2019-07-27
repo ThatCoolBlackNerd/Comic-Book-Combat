@@ -123,10 +123,6 @@ span {
     margin-bottom: 5%;
 }
 
-.one:hover {
-    cursor: pointer;
-}
-
-.two:hover {
+.heroLabel:hover {
     cursor: pointer;
 }
