@@ -69,6 +69,7 @@ label {
 
 hr{
     width: 95%;
+    margin-top: 10px;
     margin-left: auto;
     margin-right: auto;
 }
@@ -123,6 +124,12 @@ span {
     margin-bottom: 5%;
 }
 
+.heroLabel {
+    padding: 5px;
+    border-bottom: 1px solid purple;
+}
+
 .heroLabel:hover {
     cursor: pointer;
 }
+
