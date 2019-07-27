@@ -6,51 +6,88 @@ let characterNameTwo = "";
 let characterCode = "";
 let characterCodeTwo = "";
 
-
-
+function fightAgain () {
+    $('main').on('click','.reset', event => {
+        document.location.reload();
+    });
+}
 
 function powerChart (heroOne, heroTwo) {
-    var data = [{
+        
+      let trace1 = {
         x: ['Combat', 'Durabiity', 'Intelligence', 'Power', 'Speed', 'Strength'],
         y: [heroOne.powerstats.combat, heroOne.powerstats.durability, heroOne.powerstats.intelligence, heroOne.powerstats.power, heroOne.powerstats.speed, heroOne.powerstats.strength],
+        name: heroOne.name ,
         type: 'bar'
-      }];
+      };
       
-      Plotly.newPlot('js-characterInfo', data, {}, {showSendToCloud:true});
-
-      var dataTwo = [{
+      let trace2 = {
         x: ['Combat', 'Durabiity', 'Intelligence', 'Power', 'Speed', 'Strength'],
         y: [heroTwo.powerstats.combat, heroTwo.powerstats.durability, heroTwo.powerstats.intelligence, heroTwo.powerstats.power, heroTwo.powerstats.speed, heroTwo.powerstats.strength],
+        name: heroTwo.name ,
         type: 'bar'
-      }];
+      };
       
-      Plotly.newPlot('js-characterInfoTwo', dataTwo, {}, {showSendToCloud:true});
+      let data = [trace1, trace2];
+      
+      let layout = {barmode: 'group', title: 'Power Stats'};
+      
+      Plotly.newPlot('js-characterInfo', data, layout);
    
 }
 
+function displayWinner (hPowersOne, hPowersTwo) {
+    $('main').on('click', '.fightButton', function () {
+        let charPowerOne = 0;
+        for (x in hPowersOne.powerstats) {
+            sumOne += hPowersOne.powerstats[x];
+        }
+
+        let charPowerTwo = 0;
+        for (x in hPowersTwo.powerstats) {
+            sumOne += hPowersTwo.powerstats[x];
+        }
+
+        if (charPowerOne > charPowerTwo) {
+            $('main').empty();
+            $('.versusScreen').html(`
+                <h2 class="winner">${hPowersOne.name} Wins</h2>
+                <img src ="${hPowersOne.image.url}" class="winningImg">
+                <div id="js-characterInfo"></div>
+                <button class="reset">Choose New Characters</button>`);
+        } else {
+            $('main').empty();
+            $('.versusScreen').html(`
+                <h2 class="winner">${hPowersTwo.name} Wins</h2>
+                <img src ="${hPowersTwo.image.url}" class="winningImg">
+                <div id="js-characterInfo"></div>
+                <button class="reset">Choose New Characters</button>`);
+        }
+    });
+}
+
 function characterTwoDisplay (heroTwoInfoCv, heroTwoInforSh) {
-    $('main').on('click', 'span.two', function () {
-        $('characterInfo').empty();
-        $('characterInfo').html(`
+    $('main').on('click', '.two', function () {
+        $('.characterInfo').empty();
+        $('.characterInfo').html(`
         <div class="bioInfo">
         <img src="${heroTwoInfoCv.results[0].image["medium_url"]}" class="bioImage">
         <ul class ="bioList">
             <li>Real Name: ${heroTwoInforSh.biography["full-name"]}</li>
             <li>First Apperance: ${heroTwoInforSh.biography["first-appearance"]}</li>
-            <li>Publisher: ${heroTwoInforSh.biography.publisher}</li>
+            <li>Publisher: ${heroTwoInfoCv.results[0].publisher.name}</li>
             <li>Character Description: ${heroTwoInfoCv.results[0].deck}</li>
         </ul>
     </div>
-    <div id="js-characterInfoTwo"></div>   
-        `)
-    })
+        `);
+    });
 
 }
 
 function characterOneDisplay (heroOneInfoCv, heroOneInforSh) {
-    $('main').on('click', 'span.one', function () {
-        $('characterInfo').empty();
-        $('characterInfo').html(`
+    $('main').on('click', '.one', function () {
+        $('.characterInfo').empty();
+        $('.characterInfo').html(`
         <div class="bioInfo">
         <img src="${heroOneInfoCv.results[0].image["medium_url"]}" class="bioImage">
         <ul class ="bioList">
@@ -59,10 +96,9 @@ function characterOneDisplay (heroOneInfoCv, heroOneInforSh) {
             <li>Publisher: ${heroOneInforSh.biography.publisher}</li>
             <li>Character Description: ${heroOneInfoCv.results[0].deck}</li>
         </ul>
-    </div>
-    <div id="js-characterInfo"></div>   
-        `)
-    })
+    </div>  
+        `);
+    });
 
 }
 
@@ -79,10 +115,8 @@ function defaultResults (comicVineOne, comicVineTwo, superHeroOne, superHeroTwo)
     </div>
 </div>
     <h3 class="supName supNameVs">${superHeroOne.name} Vs. ${superHeroTwo.name}</h3>
-    <div class="heroToggle">
-        <span class="heroLabel one">${superHeroOne.name}</span><span class="heroLabel two">${superHeroTwo.name}</span>
+    <span class="heroLabel one">${superHeroOne.name}</span><span class="heroLabel two">${superHeroTwo.name}</span><span class="heroLabel fightButton">Fight</span>
         <hr>
-    </div>
     <div class ="characterInfo">
         <div class="bioInfo">
             <img src="${comicVineOne.results[0].image["medium_url"]}" class="bioImage">
@@ -92,13 +126,10 @@ function defaultResults (comicVineOne, comicVineTwo, superHeroOne, superHeroTwo)
                 <li>Publisher: ${superHeroOne.biography.publisher}</li>
                 <li>Character Description: ${comicVineOne.results[0].deck}</li>
             </ul>
-        </div>
-        <div id="js-characterInfo"></div>   
+        </div>   
     </div>
     `);
     $('main').removeClass("hidden");
-    characterOneDisplay(comicVineOne, superHeroOne);
-    characterTwoDisplay(comicVineTwo, superHeroTwo);
     console.log(comicVineOne);
     console.log(comicVineTwo);
     console.log(superHeroOne);
@@ -118,6 +149,9 @@ function newBio (shCharOne, shCharTwo) {
       let cvCharOne = finalVals[0];
       let cvCharTwo = finalVals[1];
     defaultResults(cvCharOne, cvCharTwo, shCharOne, shCharTwo);
+    characterOneDisplay(cvCharOne, shCharOne);
+    characterTwoDisplay(cvCharTwo, shCharTwo);
+    displayWinner(shCharOne, shCharTwo);
     powerChart(shCharOne, shCharTwo);
     })
     .catch(err => {
@@ -151,6 +185,7 @@ $('form').submit(event => {
     characterCode = Object.keys(characterList).find(key => characterList[key] == characterNameOne);
     characterCodeTwo = Object.keys(characterList).find(key => characterList[key] == characterNameTwo);
 
+    $('header').addClass('hidden');
     getBio();
 });
 }
