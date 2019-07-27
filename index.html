@@ -6,23 +6,30 @@
     <meta name="description" content="Super Hero Battle App">
     <title>Supes App</title>
     <link rel="stylesheet" href="index.css">
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 </head>
 <body>
     <header>
         <h2>Supes App: Who is the Strongest</h2>
         <div class="char_select">
             <form>
-                <label>Marvel</label>
-                <input type="text" id="js-marvel-search" class="charSearch">
-                <label>DC</label>
-                <input type="type" id="js-dc-search" class="charSearch">
+                <label>Character One</label><br><br>
+                <input type="text" id="js-characterOne-search" class="charSearch" name='js-character-name' list="js-character-list"><br><br>
+                <datalist id="js-character-list"></datalist>
+                <label>Character Two</label><br><br>
+                <input type="text" id="js-characterTwo-search" class="charSearch" name='js-characterTwo-name' list="js-character-list"><br><br>
+                <datalist id="js-character-list"></datalist>
+                <input type="submit" id="js-submit" value="Go">
             </form>
         </div>
     </header>
+    <main class ="versusScreen hidden" id="mainScreen">
+    </main>
     <script
 			  src="https://code.jquery.com/jquery-3.4.1.js"
 			  integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
-			  crossorigin="anonymous"></script>
+              crossorigin="anonymous"></script>
+    <script src="characterList.js"></script>
     <script src="index.js"></script>
 </body>
 </html>
