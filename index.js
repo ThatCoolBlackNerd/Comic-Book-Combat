@@ -8,44 +8,21 @@ let characterCodeTwo = "";
 
 function fightAgain () {
     $('main').on('click','.reset', event => {
+        console.log('Im Here');
         document.location.reload();
-    });
-}
-
-function powerChart (heroOne, heroTwo) {
-        
-      let trace1 = {
-        x: ['Combat', 'Durabiity', 'Intelligence', 'Power', 'Speed', 'Strength'],
-        y: [heroOne.powerstats.combat, heroOne.powerstats.durability, heroOne.powerstats.intelligence, heroOne.powerstats.power, heroOne.powerstats.speed, heroOne.powerstats.strength],
-        name: heroOne.name ,
-        type: 'bar'
-      };
-      
-      let trace2 = {
-        x: ['Combat', 'Durabiity', 'Intelligence', 'Power', 'Speed', 'Strength'],
-        y: [heroTwo.powerstats.combat, heroTwo.powerstats.durability, heroTwo.powerstats.intelligence, heroTwo.powerstats.power, heroTwo.powerstats.speed, heroTwo.powerstats.strength],
-        name: heroTwo.name ,
-        type: 'bar'
-      };
-      
-      let data = [trace1, trace2];
-      
-      let layout = {barmode: 'group', title: 'Power Stats'};
-      
-      Plotly.newPlot('js-characterInfo', data, layout);
-   
+     });
 }
 
 function displayWinner (hPowersOne, hPowersTwo) {
     $('main').on('click', '.fightButton', function () {
         let charPowerOne = 0;
-        for (x in hPowersOne.powerstats) {
-            sumOne += hPowersOne.powerstats[x];
+        for (var x in hPowersOne.powerstats) {
+            charPowerOne += hPowersOne.powerstats[x];
         }
 
         let charPowerTwo = 0;
-        for (x in hPowersTwo.powerstats) {
-            sumOne += hPowersTwo.powerstats[x];
+        for (var x in hPowersTwo.powerstats) {
+            charPowerTwo += hPowersTwo.powerstats[x];
         }
 
         if (charPowerOne > charPowerTwo) {
@@ -63,7 +40,27 @@ function displayWinner (hPowersOne, hPowersTwo) {
                 <div id="js-characterInfo"></div>
                 <button class="reset">Choose New Characters</button>`);
         }
+        let trace1 = {
+            x: ['Combat', 'Durabiity', 'Intelligence', 'Power', 'Speed', 'Strength'],
+            y: [hPowersOne.powerstats.combat, hPowersOne.powerstats.durability, hPowersOne.powerstats.intelligence, hPowersOne.powerstats.power, hPowersOne.powerstats.speed, hPowersOne.powerstats.strength],
+            name: hPowersOne.name ,
+            type: 'bar'
+          };
+          
+          let trace2 = {
+            x: ['Combat', 'Durabiity', 'Intelligence', 'Power', 'Speed', 'Strength'],
+            y: [hPowersTwo.powerstats.combat, hPowersTwo.powerstats.durability, hPowersTwo.powerstats.intelligence, hPowersTwo.powerstats.power, hPowersTwo.powerstats.speed, hPowersTwo.powerstats.strength],
+            name: hPowersTwo.name ,
+            type: 'bar'
+          };
+          
+          let data = [trace1, trace2];
+          
+          let layout = {barmode: 'group', title: 'Tale of the Tape'};
+          
+          Plotly.newPlot('js-characterInfo', data, layout);
     });
+    fightAgain();
 }
 
 function characterTwoDisplay (heroTwoInfoCv, heroTwoInforSh) {
@@ -152,7 +149,6 @@ function newBio (shCharOne, shCharTwo) {
     characterOneDisplay(cvCharOne, shCharOne);
     characterTwoDisplay(cvCharTwo, shCharTwo);
     displayWinner(shCharOne, shCharTwo);
-    powerChart(shCharOne, shCharTwo);
     })
     .catch(err => {
         console.log(`Something went wrong: ${err.message}`);
