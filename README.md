@@ -11,23 +11,23 @@ about who would win in a fight between x character and Y character. This app giv
 
 Landing Page
 
-![landing page](screenshots/landing_page.png)
+![landing page](Screenshots/landing_page.png)
 
 Versus Screen
 
-![versus screen](screenshots/versus_screen.png)
+![versus screen](Screenshots/versus_screen.png)
 
 Character Info
 
-![character info](screenshots/character_info.png)
+![character info](Screenshots/character_info.png)
 
 Winner
 
-![winner](screenshots/winner.png)
+![winner](Screenshots/winner.png)
 
 Power Stats
 
-![power stats](screenshots/power_stats.png)
+![power stats](Screenshots/power_stats.png)
 
 ## Demo
 
