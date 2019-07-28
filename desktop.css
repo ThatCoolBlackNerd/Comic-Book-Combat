@@ -1,0 +1,43 @@
+/* Desktop Styling*/
+
+@media only screen and (min-width: 1000px) {
+
+.charSelect {
+    display: flex;
+    flex-direction: row;
+    }
+
+input[type=text] {
+    width: 25%;
+}
+
+.title {
+    font-size: 70px;
+}
+.subtitle {
+    margin-top: 2%;
+    font-size: 30px;
+}
+
+.charImg {
+    height: 300px;
+    width: 300px;
+}
+
+.charImgTwo {
+    height: 35%;
+    width: 35%;
+}
+
+.superVs {
+    font-size: 65px;
+}
+
+.bioImage {
+    height: 50%;
+}
+
+
+
+
+}
