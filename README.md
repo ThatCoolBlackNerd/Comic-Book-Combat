@@ -31,7 +31,7 @@ Power Stats
 
 ## Demo
 
-- [Live Demo](https://thatcoolblacknerd.github.io/supes-app/)
+- [Live Demo](https://thatcoolblacknerd.github.io/Comic-Book-Combat/)
 
 ## Technologies Used
 
