@@ -4,22 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Super Hero Battle App">
-    <title>Supes App</title>
+    <title>Comic Book Combat</title>
     <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" media='screen and (min-width: 1000px)' href="desktop.css"/>
+    <link href="https://fonts.googleapis.com/css?family=Bangers|Raleway&display=swap" rel="stylesheet">
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 </head>
 <body>
-    <header>
-        <h2>Supes App: Who is the Strongest</h2>
+    <header class="landingPage">
+        <h2 class="title">Comic Book Combat</h2>
+        <p class="subTitle">Choose Two Characters See Who Wins in a Fight!!</p>
         <div class="char_select">
             <form>
-                <label>Character One</label><br><br>
-                <input type="text" id="js-characterOne-search" class="charSearch" name='js-character-name' list="js-character-list"><br><br>
+                <input type="text" id="js-characterOne-search" class="charSearch" name='js-character-name' list="js-character-list" placeholder="Character One" required><br><br>
                 <datalist id="js-character-list"></datalist>
-                <label>Character Two</label><br><br>
-                <input type="text" id="js-characterTwo-search" class="charSearch" name='js-characterTwo-name' list="js-character-list"><br><br>
+                <input type="text" id="js-characterTwo-search" class="charSearch" name='js-characterTwo-name' list="js-character-list" placeholder="Character Two" required><br><br>
                 <datalist id="js-character-list"></datalist>
-                <input type="submit" id="js-submit" value="Go">
+                <input type="submit" id="js-submit" value="Compare Your Characters">
             </form>
         </div>
     </header>
