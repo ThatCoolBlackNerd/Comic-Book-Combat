@@ -176,8 +176,8 @@ function defaultResults (comicVineOne, comicVineTwo, superHeroOne, superHeroTwo)
 
 function newBio (shCharOne, shCharTwo) {
 
-    let comicVineOne = fetch(`https://desolate-earth-25353.herokuapp.com/https://www.comicvine.com/api/search?api_key=${apiKey[0]}&limit=1&format=json&query=${shCharOne.biography["full-name"]}&query=${shCharOne.name}&resources=character`);
-    let comicVineTwo = fetch(`https://desolate-earth-25353.herokuapp.com/https://www.comicvine.com/api/search?api_key=${apiKey[0]}&limit=1&format=json&query=${shCharTwo.biography["full-name"]}&query=${shCharTwo.name}&resources=character`);
+    let comicVineOne = fetch(`https://cors-anywhere.herokuapp.com/https://www.comicvine.com/api/search?api_key=${apiKey[0]}&limit=1&format=json&query=${shCharOne.biography["full-name"]}&query=${shCharOne.name}&resources=character`);
+    let comicVineTwo = fetch(`https://cors-anywhere.herokuapp.com/https://www.comicvine.com/api/search?api_key=${apiKey[0]}&limit=1&format=json&query=${shCharTwo.biography["full-name"]}&query=${shCharTwo.name}&resources=character`);
 
 // Fetches information from the ComicVine API using the real name of the Character which was a response from the SuperHero API
     Promise.all([comicVineOne, comicVineTwo])
