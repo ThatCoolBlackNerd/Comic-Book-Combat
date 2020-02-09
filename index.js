@@ -85,7 +85,9 @@ function characterTwoDisplay (heroTwoInfoCv, heroTwoInforSh) {
         $('.characterInfo').empty();
         $('.characterInfo').html(`
         <section class="displayBio">
-            <img src="${heroTwoInfoCv.results[0].image["original_url"]}" class="charImgTwo" alt="${heroTwoInforSh.name}">
+            <div>
+                <img src="${heroTwoInfoCv.results[0].image["original_url"]}" class="charImgTwo" alt="${heroTwoInforSh.name}">
+            </div>
         <div class="appearance">
             <ul class ="appearanceList">
                 <li>Real Name: ${heroTwoInforSh.biography["full-name"]}</li>
@@ -151,10 +153,11 @@ function defaultResults (comicVineOne, comicVineTwo, superHeroOne, superHeroTwo)
     <button class="heroLabel one">${superHeroOne.name}</button><button class="heroLabel two">${superHeroTwo.name}</button><button class="heroLabel fightButton">Fight</button>
     </nav>
     <div class ="characterInfo">
-        <header class="bioImage">
-            <img src="${comicVineOne.results[0].image["original_url"]}" class="charImgTwo" alt="${superHeroOne.name}">
-        </header>
-        <section class="apperance">
+       <section class="displayBio">
+            <div>
+                <img src="${comicVineOne.results[0].image["original_url"]}" class="charImgTwo" alt="${superHeroOne.name}">
+            </div>
+        <div class="appearance">
             <ul class ="appearanceList">
                 <li>Real Name: ${superHeroOne.biography["full-name"]}</li>
                 <li>Height: ${superHeroOne.appearance.height[0]}</li>
@@ -165,6 +168,7 @@ function defaultResults (comicVineOne, comicVineTwo, superHeroOne, superHeroTwo)
                 <li>Publisher: ${superHeroOne.biography.publisher}</li>
                 <li>Character Description: ${comicVineOne.results[0].deck}</li>
              </ul>
+        </div>
         </section>
     </div>
     `);
