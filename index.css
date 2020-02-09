@@ -208,7 +208,7 @@ input[type=text]{
 .appearance {
     display: inline-block;
     width: 60%;
-    float: left;
+    float: right;
 }
 
 .appearanceList {
