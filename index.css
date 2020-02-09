@@ -207,10 +207,8 @@ input[type=text]{
 
 .appearance {
     display: inline-block;
-    flex-grow: 2;
-    height: 100%;
-    margin-right: 10px;
-    margin-left: 10px;
+    width: 60%;
+    float: left;
 }
 
 .appearanceList {
@@ -221,10 +219,10 @@ input[type=text]{
 }
 
 .displayBio {
-    display: flex;
-    flex-direction: row;
-    height: 80%;
-    margin-bottom: 10px;
+   height: 50%;
+   display: inline-block;
+   width:40%;
+   float: left;
 }
 
 .characterInfo {
