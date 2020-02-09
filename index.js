@@ -85,7 +85,7 @@ function characterTwoDisplay (heroTwoInfoCv, heroTwoInforSh) {
         $('.characterInfo').empty();
         $('.characterInfo').html(`
         <section class="displayBio">
-            <div>
+            <div class='bioImg'>
                 <img src="${heroTwoInfoCv.results[0].image["original_url"]}" class="charImgTwo" alt="${heroTwoInforSh.name}">
             </div>
         <div class="appearance">
@@ -111,7 +111,7 @@ function characterOneDisplay (heroOneInfoCv, heroOneInforSh) {
         $('.characterInfo').empty();
         $('.characterInfo').html(`
         <section class="displayBio">
-        <div>
+        <div class='bioImg'>
             <img src="${heroOneInfoCv.results[0].image["original_url"]}" class="charImgTwo" alt="${heroOneInforSh.name}">
         </div>
         <div class="appearance">
@@ -150,11 +150,11 @@ function defaultResults (comicVineOne, comicVineTwo, superHeroOne, superHeroTwo)
         </div>
     </header>
     <nav class="buttonContainer">
-    <button class="heroLabel one">${superHeroOne.name}</button><button class="heroLabel two">${superHeroTwo.name}</button><button class="heroLabel fightButton">Fight</button>
+    <button class="heroLabel one">${superHeroOne.name}</button><button class="heroLabel fightButton">Fight</button><button class="heroLabel two">${superHeroTwo.name}</button>
     </nav>
     <div class ="characterInfo">
        <section class="displayBio">
-            <div>
+            <div class='bioImg'>
                 <img src="${comicVineOne.results[0].image["original_url"]}" class="charImgTwo" alt="${superHeroOne.name}">
             </div>
         <div class="appearance">
