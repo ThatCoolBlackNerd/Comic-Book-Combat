@@ -84,10 +84,9 @@ function characterTwoDisplay (heroTwoInfoCv, heroTwoInforSh) {
     $('main').on('click', '.two', function () {
         $('.characterInfo').empty();
         $('.characterInfo').html(`
-        <header class="displayBio bioImage">
+        <section class="displayBio">
             <img src="${heroTwoInfoCv.results[0].image["original_url"]}" class="charImgTwo" alt="${heroTwoInforSh.name}">
-        </header>
-        <section class="displayBio apperance">
+        <div class="appearance">
             <ul class ="appearanceList">
                 <li>Real Name: ${heroTwoInforSh.biography["full-name"]}</li>
                 <li>Height: ${heroTwoInforSh.appearance.height[0]}</li>
@@ -98,7 +97,8 @@ function characterTwoDisplay (heroTwoInfoCv, heroTwoInforSh) {
                 <li>Publisher: ${heroTwoInforSh.biography.publisher}</li>
                 <li>Character Description: ${heroTwoInfoCv.results[0].deck}</li>
             </ul>
-        </section>
+       </div>
+       </section>
         `);
     });
 
@@ -112,7 +112,7 @@ function characterOneDisplay (heroOneInfoCv, heroOneInforSh) {
         <div>
             <img src="${heroOneInfoCv.results[0].image["original_url"]}" class="charImgTwo" alt="${heroOneInforSh.name}">
         </div>
-        <div class="apperance">
+        <div class="appearance">
             <ul class ="appearanceList">
                 <li>Real Name: ${heroOneInforSh.biography["full-name"]}</li>
                 <li>Height: ${heroOneInforSh.appearance.height[0]}</li>
