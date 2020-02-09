@@ -108,10 +108,11 @@ function characterOneDisplay (heroOneInfoCv, heroOneInforSh) {
     $('main').on('click', '.one', function () {
         $('.characterInfo').empty();
         $('.characterInfo').html(`
-        <header class="displayBio bioImage">
+        <section class="displayBio">
+        <div>
             <img src="${heroOneInfoCv.results[0].image["original_url"]}" class="charImgTwo" alt="${heroOneInforSh.name}">
-        </header>
-        <section class="displayBio apperance">
+        </div>
+        <div class="apperance">
             <ul class ="appearanceList">
                 <li>Real Name: ${heroOneInforSh.biography["full-name"]}</li>
                 <li>Height: ${heroOneInforSh.appearance.height[0]}</li>
@@ -122,6 +123,7 @@ function characterOneDisplay (heroOneInfoCv, heroOneInforSh) {
                 <li>Publisher: ${heroOneInforSh.biography.publisher}</li>
                 <li>Character Description: ${heroOneInfoCv.results[0].deck}</li>
              </ul>
+        </div>
         </section>
         `);
     });
